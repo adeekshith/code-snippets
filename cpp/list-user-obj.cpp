@@ -1,6 +1,7 @@
 /*
 	To implement a list for user defined objects.
 	Reference: http://www.java2s.com/Tutorial/Cpp/0340__list/sortlistwithuserdefinedobjectswithgreater.htm
+	Note: Ignore warnings
 */
 #include <algorithm>
 #include <functional>
@@ -16,6 +17,9 @@ class Salesperson
    Salesperson( const string& name = "", int sales = 0,int district = 0 );
    bool operator>( const Salesperson& rhs ) const;
    void print() const;
+   int x2=9;
+   std::string s2="Deek";
+   void operator() () {std::cout << "Operator called";}
 
    private:
    int district_;
@@ -58,5 +62,11 @@ int main( )
    // sort District 2 salespeople in descending order and display
    list2.sort( greater<Salesperson>() );
    for_each( list2.begin(), list2.end(), mem_fun_ref( &Salesperson::print ) );
+
+   // Access the list elements or call member functions using for loop like below
+   for(std::list<Salesperson>::iterator it = list2.begin(); it != list2.end(); ++it){
+   	it->print();
+   	std::cout<<it->x2<<std::endl;
+   }
 
 }
