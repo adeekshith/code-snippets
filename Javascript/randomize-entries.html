@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shuffler</title>
+	
+	<style>
+		body{
+			background-color:#b0c4de;
+		}
+	</style>
+</head>
+
+<body>
+	<div align="center">
+	<h1>Shuffle strings in the given field</h1>
+	<h2>List All Strings (separated by commas):</h2><br>
+	<textarea id="myTextarea" rows="6" cols="50">Type Strings Here</textarea>
+	<br/>
+<button type="button" onclick="myFunction()">Shuffle!</button>
+<br/>
+  <p>
+    Randomize and team up two strings. Useful if you are trying to form a team of two people from a group (May be for some sports or other events).
+  </p>
+	<p>
+		It works on any Javascript enabled web browser. We recommend <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+	</p>
+</div>
+<script>
+//document.write("Randomized:  ");
+function shuffle(array) {
+  var currentIndex = array.length
+    , temporaryValue
+    , randomIndex
+    ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+//var arr = ["Block or Bleed", "Ninjas", "Jaggernauts", "Hyd Ke Patte"];
+//var shufflearr=shuffle(arr);
+//document.write(shufflearr[1]+" with "+shufflearr[2]);
+
+function myFunction()
+{
+var teamsList = document.getElementById("myTextarea").value;
+var arr= teamsList.split(',');
+var shufflearr=shuffle(arr);
+//document.write(shufflearr[1]+" with "+shufflearr[2]);
+//var arrayLength = shufflearr.length;
+var matchNum=0;
+
+for (var i = 0; i < shufflearr.length; i=i+2) {
+    //alert(myStringArray[i]);
+    document.write("<br/>Match-"+matchNum+": <b>"+shufflearr[i]+"</b> with <b>"+shufflearr[i+1]+"</b><br/><br/>");
+    matchNum++;
+}
+return;
+}
+</script>
+
+</body>
+</html>
