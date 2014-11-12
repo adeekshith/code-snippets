@@ -60,7 +60,8 @@ int writer(char *data, size_t size, size_t nmemb, string *buffer)
 int main(int argc, char *argv[])
 {
     // This returns the raw external IP address.
-    string result = HttpGet("http://myexternalip.com/raw");
+    //string result = HttpGet("http://myexternalip.com/raw");
+    string result = HttpGet("https://www.google.com/search?q=weather");
     cout << result.size() << endl;
     cout << result << endl;
 }
