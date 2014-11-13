@@ -7,7 +7,7 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
-using namespace std;
+//using namespace std;
 std::vector<std::string> splitString(std::string stringToSplit, std::string delimiter){
     //std::string stringToSplit="orange,apple,mango,tomato,banana,pineapple";
     //std::string delimiter = ",";
@@ -31,7 +31,7 @@ std::vector<std::string> splitString(std::string stringToSplit, std::string deli
             token=stringToSplit.substr( prev_pos, pos );
         else
             token=stringToSplit.substr(prev_pos+delimiter.length(),pos-(prev_pos+delimiter.length()) );
-        stringstream convert(token);
+        std::stringstream convert(token);
         if ( !(convert >> currentSplit) )
             endLoop=true;
         split_vector.push_back(currentSplit);
