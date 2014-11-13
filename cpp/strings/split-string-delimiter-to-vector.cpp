@@ -1,6 +1,8 @@
 /**
  * Splits a string with a given delimiter
  * NOTE: The delimiter should also be a string
+ * Author : Deekshith Allamaneni
+ * Website: www.deekshith.in
  */
 #include <sstream>
 #include <iostream>
