@@ -5,8 +5,9 @@
  
 int main()
 {
-   std::string text = "I was happy";
-   std::regex vowel_re("was");
+   std::string text = "I was, happy?";
+   std::regex vowel_re("[,*\?<>@&\"]");
+   //std::regex vowel_re("was");
  
    // write the results to an output iterator
    /*
@@ -15,6 +16,7 @@ int main()
    */
    std::string replaced_result;
    // construct a string holding the results
-   replaced_result = std::regex_replace(text, vowel_re, "am");
+   replaced_result = std::regex_replace(text, vowel_re, "");
+   //replaced_result = std::regex_replace(text, vowel_re, "am");
    std::cout << replaced_result<<std::endl;
 }
